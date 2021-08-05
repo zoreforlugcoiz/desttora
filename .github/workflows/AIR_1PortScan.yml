@@ -3,10 +3,11 @@ name: ServerScan_Air
 
 # Controls when the workflow will run
 on:
-  repository_dispatch:
-  workflow_dispatch:
-  schedule:
-    - cron: '00-59/5 00-06 * * *'
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 env:
   REPO_URL: https://azuredeblinuxzarchive@dev.azure.com/azuredeblinuxzarchive/dev-host/_git/tool-linux
 
